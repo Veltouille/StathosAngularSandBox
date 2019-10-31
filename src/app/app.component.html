@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+  <img width="300" style="center" src="https://sm.ign.com/ign_es/screenshot/default/apex-legends-logo_m9s3.jpg">
+
+</div>
+
+<app-mon-premier></app-mon-premier>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes appareils</h2>
+      <ul class="list-group">
+        <app-appareil></app-appareil>
+        <app-appareil></app-appareil>
+        <app-appareil></app-appareil>
+      </ul>
+
+      <button class="btn btn-success"
+              [disabled]="!isAuth"
+              (click)="onAllumer()">Tout allumer</button>
+    </div>
+  </div>
+</div>
