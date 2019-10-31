@@ -16,9 +16,10 @@
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil  *ngFor="let appareil of appareils"
-                       [appareilName]="appareil.name"
-                       [ammo]="appareil.status"></app-appareil>
+        <app-appareil class="m-1" 
+                      *ngFor="let appareil of appareils"
+                      [appareilName]="appareil.name"
+                      [ammo]="appareil.status"></app-appareil>
       </ul>
 
       <button class="m-2 p-1 btn btn-success"
