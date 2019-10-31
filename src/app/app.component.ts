@@ -34,7 +34,7 @@ export class AppComponent  {
   }
 ];
 
-  constructor() {
+  constructor(private appareilService : AppareilService) {
         setTimeout(
       () => {
         this.isAuth = true;
