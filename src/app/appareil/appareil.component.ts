@@ -15,4 +15,8 @@ export class AppareilComponent implements OnInit {
   ngOnInit() {
   }
 
+  getNumberAmmo() {
+    return this.ammo;
+  }
+
 }
