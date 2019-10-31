@@ -7,16 +7,14 @@
 
 </div>
 
-<app-mon-premier></app-mon-premier>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil [appareilName]="appareilOne" [ammo]="'FULL'"></app-appareil>
-        <app-appareil [appareilName]="appareilTwo" [ammo]="'FULL'"></app-appareil>
-        <app-appareil [appareilName]="appareilThree" [ammo]="'EMPTY'"></app-appareil>
+        <app-appareil  *ngFor="let appareil of appareils"
+                       [appareilName]="appareil.name"
+                       [ammo]="appareil.status"></app-appareil>
       </ul>
 
       <button class="btn btn-success"

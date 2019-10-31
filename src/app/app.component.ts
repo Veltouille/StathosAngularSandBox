@@ -10,9 +10,20 @@ export class AppComponent  {
   title = "Apex Stathos";
   isAuth = false;
 
-  appareilOne = 'P2020';
-  appareilTwo = 'Mozambique';
-  appareilThree = 'Alternator';
+    appareils = [
+    {
+      name: 'R-301',
+      status: 'FULL'
+    },
+    {
+      name: 'PeaceKeaper',
+      status: 'FULL'
+    },
+    {
+      name: 'ARC-STAR',
+      status: 'EMPTY'
+    }
+  ];
 
   constructor() {
         setTimeout(

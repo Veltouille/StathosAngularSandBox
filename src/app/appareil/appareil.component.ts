@@ -19,4 +19,12 @@ export class AppareilComponent implements OnInit {
     return this.ammo;
   }
 
+  getColor() {
+    if(this.ammo === 'FULL') {
+      return 'green';
+    } else if(this.ammo === 'EMPTY') {
+      return 'red';
+    }
+}
+
 }
