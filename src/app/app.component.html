@@ -14,9 +14,9 @@
     <div class="col-xs-12">
       <h2>Mes appareils</h2>
       <ul class="list-group">
-        <app-appareil appareilName="Babouche"></app-appareil>
-        <app-appareil appareilName="Babouche"></app-appareil>
-        <app-appareil appareilName="Babouche"></app-appareil>
+        <app-appareil [appareilName]="appareilOne" [ammo]="'FULL'"></app-appareil>
+        <app-appareil [appareilName]="appareilTwo" [ammo]="'FULL'"></app-appareil>
+        <app-appareil [appareilName]="appareilThree" [ammo]="'EMPTY'"></app-appareil>
       </ul>
 
       <button class="btn btn-success"

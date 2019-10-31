@@ -10,6 +10,10 @@ export class AppComponent  {
   title = "Apex Stathos";
   isAuth = false;
 
+  appareilOne = 'P2020';
+  appareilTwo = 'Mozambique';
+  appareilThree = 'Alternator';
+
   constructor() {
         setTimeout(
       () => {
