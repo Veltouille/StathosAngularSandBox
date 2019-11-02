@@ -7,14 +7,17 @@ export class AppareilService {
 
   appareils = [
     {
+      id: 1,
       name: 'R-301',
       ammo: 'FULL'
     },
     {
+      id: 2,
       name: 'PeaceKeaper',
       ammo: 'FULL'
     },
     {
+      id: 3,
       name: 'ARC-STAR',
       ammo: 'EMPTY'
     }
@@ -38,5 +41,14 @@ export class AppareilService {
 
   switchOffOne(i: number) {
     this.appareils[i].ammo = 'EMPTY';
+  }
+
+  getAppareilById(id: number) {
+    const appareil = this.appareils.find(
+      (s) => {
+        return s.id === id;
+      }
+    );
+    return appareil;
   }
 }

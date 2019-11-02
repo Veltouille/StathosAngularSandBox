@@ -5,7 +5,8 @@
                 *ngFor="let appareil of appareils; let i = index"
                 [appareilName]="appareil.name"
                 [ammo]="appareil.ammo"
-                [index]="i"></app-appareil>
+                [index]="i"
+                [id]="appareil.id"></app-appareil>
 </ul>
 
 <button class="m-2 p-1 btn btn-success"
