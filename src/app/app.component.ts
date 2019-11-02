@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppareilService } from './services/appareil.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppareilService } from './services/appareil.service';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
     setTimeout(
@@ -20,20 +20,7 @@ export class AppComponent  {
   title = "Apex Stathos";
   isAuth = false;
 
-  appareils = [
-  {
-    name: 'R-301',
-    status: 'FULL'
-  },
-  {
-    name: 'PeaceKeaper',
-    status: 'FULL'
-  },
-  {
-    name: 'ARC-STAR',
-    status: 'EMPTY'
-  }
-];
+  appareils : any[];
 
   constructor(private appareilService : AppareilService) {
         setTimeout(
@@ -41,6 +28,10 @@ export class AppComponent  {
         this.isAuth = true;
       }, 4000
     );
+  }
+
+  ngOnInit() {
+    this.appareils = this.appareilService.appareils;
   }
 
   onAllumer(){

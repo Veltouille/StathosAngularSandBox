@@ -5,6 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class AppareilService {
 
+  appareils = [
+    {
+      name: 'R-301',
+      status: 'FULL'
+    },
+    {
+      name: 'PeaceKeaper',
+      status: 'FULL'
+    },
+    {
+      name: 'ARC-STAR',
+      status: 'EMPTY'
+    }
+  ];
+
   constructor() { }
 
 }
