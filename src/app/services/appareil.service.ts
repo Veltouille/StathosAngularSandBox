@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppareilService {
 
-  appareils = [
+  appareilsSubject = new Subject<any[]>();
+
+  private appareils = [
     {
       id: 1,
       name: 'R-301',
@@ -23,24 +26,32 @@ export class AppareilService {
     }
   ];
 
+  emitAppareilSubject() {
+    this.appareilsSubject.next(this.appareils.slice());
+  }
+
   switchOnAll() {
     for(let appareil of this.appareils){
       appareil.ammo = 'FULL';
     }
+    this.emitAppareilSubject();
   }
 
   switchOffAll() {
     for(let appareil of this.appareils){
       appareil.ammo = 'EMPTY';
     }
+    this.emitAppareilSubject();
   }
 
   switchOnOne(i: number) {
     this.appareils[i].ammo = 'FULL';
+    this.emitAppareilSubject();
   }
 
   switchOffOne(i: number) {
     this.appareils[i].ammo = 'EMPTY';
+    this.emitAppareilSubject();
   }
 
   getAppareilById(id: number) {
