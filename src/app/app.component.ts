@@ -17,13 +17,6 @@ export class AppComponent {
 
   name = 'Angular';
   title = "Apex Stathos";
-  isAuth = false;
 
-  constructor() {
-      setTimeout(
-      () => {
-        this.isAuth = true;
-      }, 4000
-    );
-  }
+  constructor() { }
 }
