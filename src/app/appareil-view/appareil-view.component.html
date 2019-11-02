@@ -1,0 +1,16 @@
+<h2>Mes appareils</h2>
+
+<ul class="list-group">
+  <app-appareil class="m-1" 
+                *ngFor="let appareil of appareils; let i = index"
+                [appareilName]="appareil.name"
+                [ammo]="appareil.ammo"
+                [index]="i"></app-appareil>
+</ul>
+
+<button class="m-2 p-1 btn btn-success"
+        [disabled]="!isAuth"
+        (click)="onAllumer()">Tout Recharger</button>
+<button class="m-2 p-1 btn btn-danger"
+        [disabled]="!isAuth"
+        (click)="OnEteindre()">Vider</button>

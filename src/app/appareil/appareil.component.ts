@@ -31,9 +31,9 @@ export class AppareilComponent implements OnInit {
 
   onSwitch() {
     if(this.ammo === 'FULL'){
-      this.appareilService.switchOnOne(this.index);
-    } else if (this.ammo === 'EMPTY') {
       this.appareilService.switchOffOne(this.index);
+    } else if (this.ammo === 'EMPTY') {
+      this.appareilService.switchOnOne(this.index);
     }
   }
 }
