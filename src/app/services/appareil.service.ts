@@ -8,18 +8,35 @@ export class AppareilService {
   appareils = [
     {
       name: 'R-301',
-      status: 'FULL'
+      ammo: 'FULL'
     },
     {
       name: 'PeaceKeaper',
-      status: 'FULL'
+      ammo: 'FULL'
     },
     {
       name: 'ARC-STAR',
-      status: 'EMPTY'
+      ammo: 'EMPTY'
     }
   ];
 
-  constructor() { }
+  switchOnAll() {
+    for(let appareil of this.appareils){
+      appareil.ammo = 'FULL';
+    }
+  }
 
+  switchOffAll() {
+    for(let appareil of this.appareils){
+      appareil.ammo = 'EMPTY';
+    }
+  }
+
+  switchOnOne(i: number) {
+    this.appareils[i].ammo = 'FULL';
+  }
+
+  switchOffOne(i: number) {
+    this.appareils[i].ammo = 'EMPTY';
+  }
 }

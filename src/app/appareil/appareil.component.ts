@@ -10,6 +10,7 @@ export class AppareilComponent implements OnInit {
 
   @Input() appareilName: string;
   @Input() ammo: string = 'EMPTY';
+  @Input() index: number;
 
   constructor(private appareilService : AppareilService) { }
 
@@ -26,6 +27,13 @@ export class AppareilComponent implements OnInit {
     } else if(this.ammo === 'EMPTY') {
       return 'red';
     }
-}
+  }
 
+  onSwitch() {
+    if(this.ammo === 'FULL'){
+      this.appareilService.switchOnOne(this.index);
+    } else if (this.ammo === 'EMPTY') {
+      this.appareilService.switchOffOne(this.index);
+    }
+  }
 }

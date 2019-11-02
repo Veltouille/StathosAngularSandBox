@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   appareils : any[];
 
   constructor(private appareilService : AppareilService) {
-        setTimeout(
+      setTimeout(
       () => {
         this.isAuth = true;
       }, 4000
@@ -35,6 +35,14 @@ export class AppComponent implements OnInit {
   }
 
   onAllumer(){
-    console.log("On recharge");
+    this.appareilService.switchOnAll();
+  }
+
+  OnEteindre() {
+    if(confirm('Etes-vous sûr de vouloir vider vos chargeurs ?')) {
+      this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
   }
 }
