@@ -13,7 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { FourOFourComponent } from './four-o-four/four-o-four.component';
-import { AuthGuard } from './services/authGuard.service';
+import { AuthGuard } from './services/authguard.service';
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
@@ -28,6 +28,6 @@ const appRoutes: Routes = [
   imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   declarations: [ AppComponent, HelloComponent, MonPremierComponent, AppareilComponent, AuthComponent, AppareilViewComponent, SingleAppareilComponent, FourOFourComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [AppareilService, AuthService, AuthGuard]
+  providers: [ AppareilService, AuthService, AuthGuard]
 })
 export class AppModule { }
