@@ -33,8 +33,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes),
-   HttpClientModule ],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule ],
   declarations: [ AppComponent, HelloComponent, MonPremierComponent, AppareilComponent, AuthComponent, AppareilViewComponent, SingleAppareilComponent, FourOFourComponent, EditAppareilComponent, UserListComponent, NewUserComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ AppareilService, AuthService, AuthGuard, UserService]
