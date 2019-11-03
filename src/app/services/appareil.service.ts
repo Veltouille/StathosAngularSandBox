@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,20 @@ export class AppareilService {
       ammo: 'EMPTY'
     }
   ];
+
+  constructor(private httpClient: HttpClient) { }
+
+  saveAppareilToServer() {
+    this.httpClient
+     .post('https://sandboxvel.firebaseio.com//appareils.json', this.appareils)
+     .subscribe(
+       () => {
+         console.log('Enregistrement terminé !');
+       },
+       (error) => {
+         console.log('Erreur ! : ' + error);
+       });
+  }
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
