@@ -9,37 +9,36 @@ export class AppareilService {
 
   appareilsSubject = new Subject<any[]>();
 
-  private appareils = [
-    {
-      id: 1,
-      name: 'R-301',
-      ammo: 'FULL'
-    },
-    {
-      id: 2,
-      name: 'PeaceKeaper',
-      ammo: 'FULL'
-    },
-    {
-      id: 3,
-      name: 'ARC-STAR',
-      ammo: 'EMPTY'
-    }
-  ];
+  private appareils = [];
 
   constructor(private httpClient: HttpClient) { }
 
   saveAppareilsToServer() {
     this.httpClient
-     .post('https://sandboxvel.firebaseio.com//appareils.json', this.appareils)
+     .put('https://sandboxvel.firebaseio.com//appareils.json', this.appareils)
      .subscribe(
        () => {
          console.log('Enregistrement terminé !');
        },
        (error) => {
          console.log('Erreur ! : ' + error);
-       });
+       }
+      );
   }
+
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>('https://sandboxvel.firebaseio.com//appareils.json')
+      .subscribe(
+        (response) => {
+          this.appareils = response;
+          this.emitAppareilSubject();
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+}
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
