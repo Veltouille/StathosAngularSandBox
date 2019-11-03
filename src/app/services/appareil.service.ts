@@ -9,7 +9,8 @@ export class AppareilService {
 
   appareilsSubject = new Subject<any[]>();
 
-  private appareils: Array<any> = [];
+  private appareils: Array<any> = [
+  ];
 
   constructor(private httpClient: HttpClient) { }
 
