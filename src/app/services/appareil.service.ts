@@ -29,7 +29,7 @@ export class AppareilService {
 
   constructor(private httpClient: HttpClient) { }
 
-  saveAppareilToServer() {
+  saveAppareilsToServer() {
     this.httpClient
      .post('https://sandboxvel.firebaseio.com//appareils.json', this.appareils)
      .subscribe(
