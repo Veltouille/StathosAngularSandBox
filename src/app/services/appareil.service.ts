@@ -9,13 +9,13 @@ export class AppareilService {
 
   appareilsSubject = new Subject<any[]>();
 
-  private appareils = [];
+  private appareils: Array<any> = [];
 
   constructor(private httpClient: HttpClient) { }
 
   saveAppareilsToServer() {
     this.httpClient
-     .put('https://sandboxvel.firebaseio.com//appareils.json', this.appareils)
+     .put('https://sandboxvel.firebaseio.com/appareils.json', this.appareils)
      .subscribe(
        () => {
          console.log('Enregistrement terminé !');
@@ -28,7 +28,7 @@ export class AppareilService {
 
   getAppareilsFromServer() {
     this.httpClient
-      .get<any[]>('https://sandboxvel.firebaseio.com//appareils.json')
+      .get<any[]>('https://sandboxvel.firebaseio.com/appareils.json')
       .subscribe(
         (response) => {
           this.appareils = response;
@@ -38,7 +38,7 @@ export class AppareilService {
           console.log('Erreur ! : ' + error);
         }
       );
-}
+  }
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
