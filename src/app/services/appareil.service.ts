@@ -62,4 +62,17 @@ export class AppareilService {
     );
     return appareil;
   }
+
+  addAppareil(name: string, ammo: string) {
+    const appareilObject = {
+      id: 0,
+      name: '',
+      ammo: ''
+    };
+    appareilObject.name = name;
+    appareilObject.ammo = ammo;
+    appareilObject.id = this.appareils[(this.appareils.length - 1)].id + 1;
+    this.appareils.push(appareilObject);
+    this.emitAppareilSubject();
+  }
 }
